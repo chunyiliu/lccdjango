@@ -1,0 +1,10 @@
+.shadow{
+	width: 31%;
+	height: 500px;
+	float: left;
+	margin:2%;
+}
+
+.shadow img{
+	width: 100%;
+}

@@ -1,0 +1,48 @@
+{% extends 'BasePage.html' %}
+
+{% block pageTitle %}
+產品資訊
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/goods.css" />
+{% endblock %}
+
+{% block mainContent %}
+
+	<div style="height: 60px;margin:30px;">
+		<form action='' method='get'>
+			產品關鍵字:<input type="text" name="p" />
+			<p></p>
+			價格區間:<input type="text" name="priceS" />~<input type="text" name="priceE" />
+			<p></p>
+			<input type="submit" value="查詢" />
+		</form>
+	</div>
+
+	<div class='goodsArea'>
+		{% for row in allGoods %}
+			<div class='info'>
+				<a href='{{row.goods_url}}' target="_blank">
+					<img src='{{row.photo_url}}'>
+				</a>
+				<p>{{row.name}}</p>
+				<span>NT:{{row.price}}</span>
+				<a href="/addtocart/add/{{row.id}}/">Buy</a>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div style="float:left;height:60px;padding-top: 100px;margin-left: 45%;">
+		{% if allGoods.has_previous %}
+			<a href="?page={{allGoods.previous_page_number}}&p={{goodsName}}&priceS={{sprice}}&priceE={{eprice}}">上一頁</a>
+		{% endif %}
+
+		{% if allGoods.has_next %}
+			<a href="?page={{allGoods.next_page_number}}&p={{goodsName}}&priceS={{sprice}}&priceE={{eprice}}">下一頁</a>
+		{% endif %}
+	</div>
+	<div style="clear: both">
+	</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'BasePage.html' %}
+
+{% block pageTitle %}
+公司績效
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/sales.css">
+{% endblock %}
+
+{% block mainContent %}
+
+<div class="hot">
+	{% for item in data %}
+		<div class="hotbar">
+
+			<div class="hotleft">
+				<img src="{{item.photos}}">
+			</div>
+
+			<div class="hotright">
+				<p>{{item.create_date}}</p>
+				<p>{{item.title}}</p>
+				<p>{{item.info}}</p>
+
+			</div>
+	
+		</div>
+
+	{% endfor %}
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'BasePage.html' %}
+
+{% block pageTitle %}
+圖片區
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/photos.css">
+{% endblock %}
+
+{% block mainContent %}
+
+	<div style="margin-top: 30px;"></div>
+	<h1>圖片區</h1>
+<!-- 在表單中若要上傳檔案時,一定要在form 表單中的屬性加上 enctype="multipart/form-data" 才可以上傳-->
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+
+		<div class="form-row">
+			<div class="form-group col-md-4">
+			</div>
+
+			<div class="form-group col-md-4">
+				{{ form.image }}
+			</div>
+
+			<div class="form-group col-md-4">				
+			</div>
+
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-4">
+			</div>
+
+			<div class="form-group col-md-4">
+				<input type="submit" class="btn btn-primary" value="上傳" />
+			</div>
+
+			<div class="form-group col-md-4">	
+			</div>
+
+		</div>
+	</form>
+
+<div class="row">
+	{% for photo in photos %}
+		{% if photo.image %}
+			<div class="col-md-4">
+				<div class="card mb-4 shadow">
+					<img src="{{photo.image.url}}" class="card-img-top">
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+
+{% endblock %}

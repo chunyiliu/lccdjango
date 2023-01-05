@@ -1,0 +1,27 @@
+.newsArea{
+	float: left;
+	padding: 2%;
+	width: 23%;
+	height: 250px;
+}
+
+.newsImg{
+	float: left;
+	width: 100%;
+
+}
+
+.newsImg img{
+	width: 100%;
+	height: 200px;
+}
+
+.newsTitle{
+	float: left;
+	width: 100%;
+}
+
+#content{
+	margin-left: 10%;
+}
+
